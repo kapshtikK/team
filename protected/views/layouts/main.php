@@ -18,7 +18,8 @@
         
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/css/font-awesome.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/sb-admin.css" />  
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+	  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/css/font-awesome.css" />
+        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
 <body>
@@ -33,27 +34,44 @@
             <div class="sidebar-collapse">
                 <ul id="side-menu" class="nav">
                    
+                    <li class="dropdown open">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                Создать
+                                <i class="fa fa-caret-down"></i>
+                        </a>
+                                <ul class="dropdown-menu dropdown-alerts">
+                                     <li>
+                                        <a href="#"> <div>Проект</div></a>                          
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="#"> <div>Веху</div></a>                          
+                                    </li>
+                       
+                                    <li>
+                                        <a href="#"> <div>Задачу</div></a>                          
+                                    </li>
+                                 
+                                </ul>
+                 
                     <li>
-                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php">Создать</a>
-                    </li>
-                    <li>
-                        <a href="#">Проекты</a>
+                        <a href="#">Проекты<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse">
                             <li>
-                                 <a href="#">Мои проекты<span class="fa arrow"></span></a>
+                                 <a href="#">Мои проекты</a>
                                     
                             </li>
                             <li>
-                                 <a href="#">Отслеживаемые<span class="fa arrow"></span></a>
+                                 <a href="#">Отслеживаемые</a>
                             </li>
                             <li>
-                                 <a href="#">Активные<span class="fa arrow"></span></a>
+                                 <a href="#">Активные</a>
                             </li>
                             <li>
-                                 <a href="#">Приостановленные<span class="fa arrow"></span></a>
+                                 <a href="#">Приостановленные</a>
                             </li>
                             <li>
-                                 <a href="#">Закрытые<span class="fa arrow"></span></a>
+                                 <a href="#">Закрытые</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -62,7 +80,7 @@
                         <a href="#">Вехи<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse">
                             <li>
-                                 <a href="#">Вехи с моими задачами<span class="fa arrow"></span></a>
+                                 <a href="#">Вехи с моими задачами</a>
                                    
                             </li>
                         </ul>
@@ -72,7 +90,7 @@
                         <a href="#">Задачи<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse">
                             <li>
-                                 <a href="#">Мои задачи<span class="fa arrow"></span></a>
+                                 <a href="#">Мои задачи</a>
                                    
                             </li>
                         </ul>
