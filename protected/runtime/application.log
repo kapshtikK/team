@@ -554,3 +554,21 @@ Stack trace:
 REQUEST_URI=/qdsTeam/index.php/gii/model/index
 HTTP_REFERER=http://localhost/qdsTeam/index.php/gii
 ---
+2014/03/27 00:48:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/create".' in C:\server\Apache_2_2\htdocs\qdsTeam\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\server\Apache_2_2\htdocs\qdsTeam\framework\web\CWebApplication.php(141): CWebApplication->runController('user/create')
+#1 C:\server\Apache_2_2\htdocs\qdsTeam\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\server\Apache_2_2\htdocs\qdsTeam\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/qdsTeam/index.php/user/create
+HTTP_REFERER=http://127.0.0.1/qdsTeam/index.php/Tbproject
+---
+2014/03/27 00:48:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Tbreg/index".' in C:\server\Apache_2_2\htdocs\qdsTeam\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\server\Apache_2_2\htdocs\qdsTeam\framework\web\CWebApplication.php(141): CWebApplication->runController('Tbreg/index')
+#1 C:\server\Apache_2_2\htdocs\qdsTeam\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\server\Apache_2_2\htdocs\qdsTeam\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/qdsTeam/index.php/Tbreg/index
+HTTP_REFERER=http://127.0.0.1/qdsTeam/index.php/user/create
+---

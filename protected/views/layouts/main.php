@@ -24,91 +24,64 @@
 <body>
     
      <div id="wrapper">
-<h4 align="right"><?php echo Yii::app()->user->name ?>
-          <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/logout" style="color:red"><button class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button></a></h4>
-        <nav style="margin-bottom: 0" role="navigation" class="navbar navbar-default navbar-static-top">
-        </nav>
-      
+         <a class="navbar-brand" href="index.php">QDS Team</a>
+<h5 style ="background-color:white" align="right"><?php echo Yii::app()->user->name ?>
+          <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/logout" >
+              <button class="btn btn-info"><i class="fa fa-times"></i>logout</button></a></h5>
 
         <nav role="navigation" class="navbar-default navbar-static-side">
             <div class="sidebar-collapse">
                 <ul id="side-menu" class="nav">
                    
                     <li>
-                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php">Главная</a>
+                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php">Создать</a>
                     </li>
                     <li>
-                        <a href="#">Справочники<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
+                        <a href="#">Проекты</a>
+                        <ul class="nav nav-third-level collapse">
                             <li>
-                                 <a href="#">Пользователи<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level collapse">
-                                        <li>
-                                             <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/user/create">Добавить пользователя</a>
-
-                                        </li>
-                                         <li>
-                                             <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/user/admin">Просмотреть пользователей</a>
-
-                                        </li>
-                                       
-                                    </ul>
+                                 <a href="#">Мои проекты<span class="fa arrow"></span></a>
+                                    
                             </li>
                             <li>
-                                 <a href="#">Товары<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level collapse">
-                                            <li>
-                                                 <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbgoods2/create">Добавить товар</a>
-
-                                            </li>
-                                             <li>
-                                                 <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/Tbgoods2">Просмотреть товары</a>
-
-                                            </li>
-                                        </ul>
+                                 <a href="#">Отслеживаемые<span class="fa arrow"></span></a>
+                            </li>
+                            <li>
+                                 <a href="#">Активные<span class="fa arrow"></span></a>
+                            </li>
+                            <li>
+                                 <a href="#">Приостановленные<span class="fa arrow"></span></a>
+                            </li>
+                            <li>
+                                 <a href="#">Закрытые<span class="fa arrow"></span></a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#">Документы<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
+                        <a href="#">Вехи<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse">
                             <li>
-                                 <a href="#">Приход<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level collapse">
-                                        <li>
-                                             <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/comin/view">Просмотреть приходные документы</a>
-
-                                        </li>
-                                         <li>
-                                             <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/comin/create">Добавить приход</a>
-
-                                        </li>
-                                       
-                                    </ul>
-                            </li>
-                            <li>
-                                 <a href="#">Расход<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-second-level collapse">
-                                            <li>
-                                                 <a href="#">Просмотреть расходные документы<span class="fa arrow"></span></a>
-
-                                            </li>
-                                             <li>
-                                                 <a href="#">Добавить расход<span class="fa arrow"></span></a>
-
-                                            </li>
-                                        </ul>
+                                 <a href="#">Вехи с моими задачами<span class="fa arrow"></span></a>
+                                   
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/Tbreg/index">Отчет по остаткам</a>
+                        <a href="#">Задачи<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse">
+                            <li>
+                                 <a href="#">Мои задачи<span class="fa arrow"></span></a>
+                                   
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/logout">Выход</a>
+                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php">Таймер</a>
                     </li>
+
                     
                     
                     
