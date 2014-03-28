@@ -15,42 +15,49 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pr_name'); ?>
+		<?php echo $form->labelEx($model,'Название'); ?>
 		<?php echo $form->textField($model,'pr_name',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'pr_name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pr_specification'); ?>
-		<?php echo $form->textField($model,'pr_specification',array('size'=>60,'maxlength'=>5000)); ?>
+		<?php echo $form->labelEx($model,'Описание'); ?>
+		<?php echo $form->textArea($model,'pr_specification',array('size'=>60,'maxlength'=>5000)); ?>
 		<?php echo $form->error($model,'pr_specification'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'pr_date_create'); ?>
-		<?php echo $form->textField($model,'pr_date_create'); ?>
-		<?php echo $form->error($model,'pr_date_create'); ?>
+        <div class="row">
+		<?php echo $form->labelEx($model,'Менеджер'); ?>
+                <?php
+                    $connection=Yii::app()->db;
+                    $sql="SELECT g_user FROM tb_group where g_admin=".Yii::app()->user->id;
+                    $command=$connection->createCommand($sql);
+                    $rows=$command->queryAll();
+                    $row = array();
+                    foreach ($rows as $r)
+                    {
+                        //echo $r['g_user'];
+                        $sql="SELECT id, u_name FROM tb_user where id=".$r['g_user'];
+                        $command=$connection->createCommand($sql);
+                        $rows2=$command->queryAll();
+                        foreach ($rows2 as $r2)
+                        {
+                            $row += array($r2['id']=>$r2['u_name']);
+                        }
+                    }
+                    echo CHtml::dropDownList('get_u','get_u',$row);
+                    ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'pr_status'); ?>
-		<?php echo $form->textField($model,'pr_status'); ?>
-		<?php echo $form->error($model,'pr_status'); ?>
+    
+        <div class="row">
+		<?php echo $form->labelEx($model,'Команда'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'pr_user'); ?>
-		<?php echo $form->textField($model,'pr_user'); ?>
-		<?php echo $form->error($model,'pr_user'); ?>
-	</div>
-
+    
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Изменить'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

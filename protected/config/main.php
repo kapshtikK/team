@@ -8,6 +8,8 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'QDS Team',
+        'defaultController' => 'user/input',
+        'language'=>'ru',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -35,7 +37,12 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+                        'class' => 'WebUser',
 		),
+                'authManager' => array(
+                    'class' => 'PhpAuthManager',
+                    'defaultRoles' => array('guest'),
+                ) ,
 		// uncomment the following to enable URLs in path-format
 		
 		'urlManager'=>array(

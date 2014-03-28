@@ -1,0 +1,1 @@
+<h1>Добро пожаловать, <?php echo UserRegistration::model()->findByPk($user->id)->u_name; ?></h1>

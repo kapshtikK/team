@@ -25,8 +25,8 @@
 <body>
     
      <div id="wrapper">
-         <a class="navbar-brand" href="index.php">QDS Team</a>
-<h5 style ="background-color:white" align="right"><?php echo Yii::app()->user->name ?>
+         <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>/index.php">QDS Team</a>
+<h5 style ="background-color:#BCE8F1; height:40px;" align="right"><?php echo Yii::app()->user->name ?>
           <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/logout" >
               <button class="btn btn-info"><i class="fa fa-times"></i>logout</button></a></h5>
 
@@ -34,22 +34,22 @@
             <div class="sidebar-collapse">
                 <ul id="side-menu" class="nav">
                    
-                    <li class="dropdown open">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                                Создать
-                                <i class="fa fa-caret-down"></i>
+                    <li >
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" ><button class="btn btn-success" style="width:90%">
+                                Создать....
+                            </button>
                         </a>
                                 <ul class="dropdown-menu dropdown-alerts">
                                      <li>
-                                        <a href="#"> <div>Проект</div></a>                          
+                                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbproject/create"> <div>Проект</div></a>                          
                                     </li>
                                     
                                     <li>
-                                        <a href="#"> <div>Веху</div></a>                          
+                                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbmilestone/create"> <div>Веху</div></a>                          
                                     </li>
                        
                                     <li>
-                                        <a href="#"> <div>Задачу</div></a>                          
+                                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbtask/create"> <div>Задачу</div></a>                          
                                     </li>
                                  
                                 </ul>
@@ -58,20 +58,21 @@
                         <a href="#">Проекты<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse">
                             <li>
-                                 <a href="#">Мои проекты</a>
-                                    
+                                 <a href="<?php echo $this->createUrl('Tbproject/index'); ?>">Все проекты</a>
+                            </li>
+                            
+                            <li>
+                                 <a href="<?php echo $this->createUrl('Tbproject/index'); ?>">Мои проекты</a>
+                            </li>
+
+                            <li>
+                                 <a href="<?php echo $this->createUrl('Tbproject/index'); ?>">Активные</a>
                             </li>
                             <li>
-                                 <a href="#">Отслеживаемые</a>
+                                 <a href="<?php echo $this->createUrl('Tbproject/index'); ?>">Приостановленные</a>
                             </li>
                             <li>
-                                 <a href="#">Активные</a>
-                            </li>
-                            <li>
-                                 <a href="#">Приостановленные</a>
-                            </li>
-                            <li>
-                                 <a href="#">Закрытые</a>
+                                 <a href="<?php echo $this->createUrl('Tbproject/index'); ?>">Закрытые</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -80,7 +81,11 @@
                         <a href="#">Вехи<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse">
                             <li>
-                                 <a href="#">Вехи с моими задачами</a>
+                                 <a href="<?php echo $this->createUrl('Tbmilestone/index/1'); ?>">Все вехи</a>
+                                   
+                            </li>
+                            <li>
+                                 <a href="<?php echo $this->createUrl('Tbmilestone/index/2'); ?>">Мои вехи</a>
                                    
                             </li>
                         </ul>
@@ -89,8 +94,12 @@
                     <li>
                         <a href="#">Задачи<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse">
+                             <li>
+                                 <a href="<?php echo $this->createUrl('Tbtask/index/1'); ?>">Все задачи</a>
+                                   
+                            </li>
                             <li>
-                                 <a href="#">Мои задачи</a>
+                                 <a href="<?php echo $this->createUrl('Tbtask/index/2'); ?>">Мои задачи</a>
                                    
                             </li>
                         </ul>
@@ -103,6 +112,7 @@
                     
                     
                     
+                    </li>
                 </ul>
                 <!-- /#side-menu -->
             </div>

@@ -3,22 +3,39 @@
 /* @var $model Tbproject */
 
 $this->breadcrumbs=array(
-	'Tbprojects'=>array('index'),
-	$model->id,
+	'проекты'=>array('index'),
+	$model->pr_name,
 );
+?><!-- отрисовка кнопки с названием проекта и выпадающего меню -->
+         <ul id="side-menu" class="nav">
+              <li >
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="width:11%" ><button class="btn btn-success" style="width:auto"><?php echo $model->pr_name; ?> </button>                                                 
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                               <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbproject/create"> <div>Редактировать</div></a>                          
+                           </li>
 
-$this->menu=array(
-	array('label'=>'List Tbproject', 'url'=>array('index')),
-	array('label'=>'Create Tbproject', 'url'=>array('create')),
-	array('label'=>'Update Tbproject', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Tbproject', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Tbproject', 'url'=>array('admin')),
-);
-?>
+                           <li>
+                               <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbmilestone/create"> <div>Удалить</div></a>                          
+                           </li>
 
-<h1>View Tbproject #<?php echo $model->id; ?></h1>
+                           <li>
+                               <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbtask/create"> <div>Просмотреть</div></a>                          
+                           </li>
+                    </ul>
+            </li>
+        </ul>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+
+
+                               
+
+
+
+        <?php $this->renderPartial('_viewTask', array('model'=>$model)); ?>
+
+<?php /* $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -28,4 +45,9 @@ $this->menu=array(
 		'pr_status',
 		'pr_user',
 	),
-)); ?>
+)); 
+ */ 
+
+?>
+
+ 

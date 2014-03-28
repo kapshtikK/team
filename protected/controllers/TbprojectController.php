@@ -15,7 +15,7 @@ class TbprojectController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			//'postOnly + delete', // we only allow deletion via POST request (в рабочем проекте, чтоб удаление происходило - эту строку закомментировать)
 		);
 	}
 
@@ -37,7 +37,7 @@ class TbprojectController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'users'=>array('*'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -45,12 +45,11 @@ class TbprojectController extends Controller
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
 	public function actionView($id)
 	{
+            $modelProject = $this->loadModel($id);
+            $modelTask = new Tbtask;
+            
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -69,9 +68,10 @@ class TbprojectController extends Controller
 
 		if(isset($_POST['Tbproject']))
 		{
-			$model->attributes=$_POST['Tbproject'];
+			/*$model->attributes=$_POST['Tbproject'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('view','id'=>$model->id));*/
+                    echo "Work";
 		}
 
 		$this->render('create',array(
@@ -110,22 +110,34 @@ class TbprojectController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+            
+            
+		//$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+            
+             }
+            
 
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
+            
+            $model = new Tbproject;
+		$tableProject = $model->getTableAllProject();
+                            
+		$this->render('index', array('tableProject'  => $tableProject)) ;
+                /*
 		$dataProvider=new CActiveDataProvider('Tbproject');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+                 
+                 */
 	}
 
 	/**

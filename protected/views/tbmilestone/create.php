@@ -3,16 +3,13 @@
 /* @var $model Tbmilestone */
 
 $this->breadcrumbs=array(
-	'Tbmilestones'=>array('index'),
-	'Create',
+	'Веха'=>array('index'),
+	'Создать',
 );
 
-$this->menu=array(
-	array('label'=>'List Tbmilestone', 'url'=>array('index')),
-	array('label'=>'Manage Tbmilestone', 'url'=>array('admin')),
-);
+
 ?>
 
-<h1>Create Tbmilestone</h1>
+<h1>Создать веху</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

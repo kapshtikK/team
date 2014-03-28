@@ -59,11 +59,12 @@ class Tbmilestone extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'mResponsible' => array(self::BELONGS_TO, 'TbUser', 'm_responsible'),
-			'mStatus' => array(self::BELONGS_TO, 'TbStatus', 'm_status'),
-			'mAuthor' => array(self::BELONGS_TO, 'TbUser', 'm_author'),
-			'mProject' => array(self::BELONGS_TO, 'TbProject', 'm_project'),
-			'tbTasks' => array(self::HAS_MANY, 'TbTask', 't_milestone'),
+			'mResponsible' => array(self::BELONGS_TO, 'User', 'm_responsible'),
+			'mStatus' => array(self::BELONGS_TO, 'Tbstatus', 'm_status'),
+			'mAuthor' => array(self::BELONGS_TO, 'User', 'm_author'),
+			'mProject' => array(self::BELONGS_TO, 'Tbproject', 'm_project'),
+			'tbTasks' => array(self::HAS_MANY, 'Tbtask', 't_milestone'),
+                    
 		);
 	}
 

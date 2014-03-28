@@ -119,4 +119,34 @@ class Tbproject extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        //------------------------------------------------------------------------------------------
+        //мои методы
+        
+        public function getTableAllProject()
+        {
+            
+            $tableProject = array();
+            
+            $sql = "Select tb_project.id as id, tb_status.s_name as status, tb_project.pr_name as name , 
+                    (SELECT count(*) from tb_task tt WHERE tb_project.id = tt.t_project) as countW,
+
+                    (SELECT u_name FROM tb_user WHERE id= (
+                    SELECT team_user
+                    FROM tb_team 
+                     WHERE
+                    tb_team.team_role = 2 AND
+                    tb_team.team_project  =  tb_project.id)) as firstName
+
+                   FROM tb_project, tb_status
+                   WHERE tb_project.pr_status = tb_status.id;";
+		$connection = Yii::app()->db;
+		$command = $connection->createCommand($sql);
+		 $tableProject = $command->queryAll();
+            
+            return $tableProject;
+        }
+        
+        
+        
+        //--------------------------------------------------------------------------------------------
 }

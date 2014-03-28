@@ -67,9 +67,9 @@ class Tbtask extends CActiveRecord
 			'tbSubtasks' => array(self::HAS_MANY, 'TbSubtask', 'st_task'),
 			'tProject' => array(self::BELONGS_TO, 'TbProject', 't_project'),
 			'tMilestone' => array(self::BELONGS_TO, 'TbMilestone', 't_milestone'),
-			'tResponsible' => array(self::BELONGS_TO, 'TbUser', 't_responsible'),
+			'tResponsible' => array(self::BELONGS_TO, 'User', 't_responsible'),
 			'tStatus' => array(self::BELONGS_TO, 'TbStatus', 't_status'),
-			'tAuthor' => array(self::BELONGS_TO, 'TbUser', 't_author'),
+			'tAuthor' => array(self::BELONGS_TO, 'User', 't_author'),
 			'tbTimers' => array(self::HAS_MANY, 'TbTimer', 'timer_task'),
 		);
 	}
