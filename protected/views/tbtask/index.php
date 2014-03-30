@@ -32,27 +32,28 @@ foreach($model as $row) //вывод
             "<td>".$row['tResponsible']['u_name']."</td>".
               '<td><ul id="side-menu" class="nav">
                    
-                    <li >
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="width:60px" >
-                            <button class="btn btn-default btn-circle" >
-                                  <i class="fa fa-check"></i> 
-                            </button>
-                        </a>
-                                <ul class="dropdown-menu dropdown-alerts">
-                                     <li>';
-           ?>
-                                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbtask/update/<?php echo $row['id'];?>"> <div>Редактировать</div></a>                          
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbtask/delete/<?php echo $row['id'];?>"> <div>Удалить</div></a>                          
-                                    </li>
-                       
-                                    <li>
-                                        <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/tbtask/create"> <div>Добавить новую задачу</div></a>                          
-                                    </li>
-                                 
-                                </ul>
+        <li >
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="width:60px" >
+                <button class="btn btn-default btn-circle" >
+                      <i class="fa fa-check"></i> 
+                </button>
+            </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                         <li>';
+           ?>                            
+                        <?php echo CHtml::link('Редактировать',array('/tbtask/update', 'id'=>$row['id'], 'renderTo'=>1)); ?> 
+
+                        </li>
+
+                        <li>
+                           <?php echo CHtml::link('Удалить',array('/tbtask/delete', 'id'=>$row['id'], 'renderTo'=>1)); ?>                        
+                        </li>
+
+                        <li>
+                               <?php echo CHtml::link('Добавить подзадачу',array('tbsubtask/create', 'id'=>$row['id'])); ?>                          
+                        </li>
+
+                    </ul>
                     </li>
                         </ul></td></tr>
              

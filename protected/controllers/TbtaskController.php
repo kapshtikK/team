@@ -15,7 +15,7 @@ class TbtaskController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			//'postOnly + delete', // we only allow deletion via POST request (в рабочем проекте, чтоб удаление происходило - эту строку закомментировать)
+			//'postOnly + delete', // we only allow deletion via POST request (в рабочем проекте, чтоб удаление происходило - эту строка должна быть закомментирована)
 		);
 	}
 
@@ -108,13 +108,19 @@ class TbtaskController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
+	public function actionDelete($id, $renderTo, $idProject)
 	{
-		//$this->loadModel($id)->delete();
-
+		//$this->loadModel($id)->delete();  //раскомментировать в рабочей версии приложения
+                
+            if($renderTo==1){
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('/tbtask/index/1'));
+            }
+            if(isset($idProject)){
+              if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array("/tbproject/view/$idProject"));  
+            }
 	}
 
 	/**
@@ -122,10 +128,16 @@ class TbtaskController extends Controller
 	 */
 	public function actionIndex($id)
 	{
-            if($id==1)
+            if($id==1)  //вывод всех существующих задач
             {
 		 $model = Tbtask::model()->with('tStatus','tResponsible')->findAll();
-		//$dataProvider=new CActiveDataProvider('Tbmilestone');
+		$this->render('index',array(
+			'model'=>$model,
+		));
+            }
+            if($id==10)  //вывод только тех задач, ответственным которых являюсь я
+            {
+		 $model = Tbtask::model()->with('tStatus','tResponsible')->findAllByAttributes(array('t_responsible'=>Yii::app()->user->id));
 		$this->render('index',array(
 			'model'=>$model,
 		));

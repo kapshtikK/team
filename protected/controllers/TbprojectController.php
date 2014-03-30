@@ -47,11 +47,13 @@ class TbprojectController extends Controller
 
 	public function actionView($id)
 	{
-            $modelProject = $this->loadModel($id);
-            $modelTask = new Tbtask;
-            
+            $model = $this->loadModel($id);
+            $modelTask  = Tbtask::model()->with('tStatus','tResponsible')->findAllByAttributes(array('t_project'=>$id));
+            $modelMilestone = Tbmilestone::model()->with('mStatus','mResponsible')->findAllByAttributes(array('m_project'=>$id));
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
+                        'modelTask'=>$modelTask,
+                        'modelMilestone'=>$modelMilestone,
 		));
 	}
 
@@ -119,25 +121,22 @@ class TbprojectController extends Controller
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
             
              }
-            
 
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
+	public function actionIndex($id)
 	{
-            
-            $model = new Tbproject;
-		$tableProject = $model->getTableAllProject();
-                            
+            if($id==1)
+            {
+                $model = new Tbproject;
+		$tableProject = $model->getTableAllProject();       
 		$this->render('index', array('tableProject'  => $tableProject)) ;
-                /*
-		$dataProvider=new CActiveDataProvider('Tbproject');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-                 
-                 */
+            }
+             if($id==10)
+            {
+                $model = new Tbproject;
+		$tableProject = $model->getTableAllProject();       
+		$this->render('index', array('tableProject'  => $tableProject)) ;
+            }
+
 	}
 
 	/**

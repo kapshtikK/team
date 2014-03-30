@@ -58,11 +58,11 @@
                         <a href="#">Проекты<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse">
                             <li>
-                                 <a href="<?php echo $this->createUrl('Tbproject/index'); ?>">Все проекты</a>
+                                 <a href="<?php echo $this->createUrl('Tbproject/index/1'); ?>">Все проекты</a>
                             </li>
                             
                             <li>
-                                 <a href="<?php echo $this->createUrl('Tbproject/index'); ?>">Мои проекты</a>
+                                 <a href="<?php echo $this->createUrl('Tbproject/index/10'); ?>">Мои проекты</a>
                             </li>
 
                             <li>
@@ -85,7 +85,7 @@
                                    
                             </li>
                             <li>
-                                 <a href="<?php echo $this->createUrl('Tbmilestone/index/2'); ?>">Мои вехи</a>
+                                 <a href="<?php echo $this->createUrl('Tbmilestone/index/10'); ?>">Мои вехи</a>
                                    
                             </li>
                         </ul>
@@ -99,7 +99,7 @@
                                    
                             </li>
                             <li>
-                                 <a href="<?php echo $this->createUrl('Tbtask/index/2'); ?>">Мои задачи</a>
+                                 <a href="<?php echo $this->createUrl('Tbtask/index/10'); ?>">Мои задачи</a>
                                    
                             </li>
                         </ul>

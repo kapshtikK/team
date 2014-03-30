@@ -122,9 +122,18 @@ class TbmilestoneController extends Controller
 	 */
 	public function actionIndex($id)
 	{
-            if($id==1)
+            if($id==1) //отображение всех вех
             {
-            $model = Tbmilestone::model()->with('mStatus','mResponsible')->findAll();
+                $model = Tbmilestone::model()->with('mStatus','mResponsible')->findAll();
+		//$dataProvider=new CActiveDataProvider('Tbmilestone');
+		$this->render('index',array(
+			'model'=>$model,
+		));
+            }
+            
+            if($id==10)//отображение только тех вех по которым я ответственный
+            {
+                $model = Tbmilestone::model()->with('mStatus','mResponsible')->findAllByAttributes(array('m_responsible'=>Yii::app()->user->id));
 		//$dataProvider=new CActiveDataProvider('Tbmilestone');
 		$this->render('index',array(
 			'model'=>$model,
