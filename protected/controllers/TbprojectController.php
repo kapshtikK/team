@@ -50,10 +50,14 @@ class TbprojectController extends Controller
             $model = $this->loadModel($id);
             $modelTask  = Tbtask::model()->with('tStatus','tResponsible')->findAllByAttributes(array('t_project'=>$id));
             $modelMilestone = Tbmilestone::model()->with('mStatus','mResponsible')->findAllByAttributes(array('m_project'=>$id));
-		$this->render('view',array(
-			'model'=>$model,
-                        'modelTask'=>$modelTask,
-                        'modelMilestone'=>$modelMilestone,
+	    $modelTeam = Tbteam::model()->with('teamUser','teamRole')->findAllByAttributes(array('team_project'=>$id));	
+          //  $modelProject = Tbproject::model()->with('prStatus', 'prUser', 'tbTeams', 'tbTimers')->findAllByAttributes(array('id'=>$id, 'tb_team.team_role'=>2));	
+            $this->render('view',array(
+			'model' => $model,
+                        'modelTask' => $modelTask,
+                        'modelMilestone' => $modelMilestone,
+                        'modelTeam' => $modelTeam,
+                      //  'modelProject' => $modelProject,
 		));
 	}
 
@@ -122,8 +126,9 @@ class TbprojectController extends Controller
             
              }
 
-	public function actionIndex($id)
+	public function actionIndex($id=1)
 	{
+      
             if($id==1)
             {
                 $model = new Tbproject;
@@ -132,9 +137,12 @@ class TbprojectController extends Controller
             }
              if($id==10)
             {
+                 /*
                 $model = new Tbproject;
 		$tableProject = $model->getTableAllProject();       
 		$this->render('index', array('tableProject'  => $tableProject)) ;
+                   
+                  */
             }
 
 	}

@@ -55,12 +55,12 @@ class Tbproject extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tbMilestones' => array(self::HAS_MANY, 'TbMilestone', 'm_project'),
-			'prStatus' => array(self::BELONGS_TO, 'TbStatus', 'pr_status'),
-			'prUser' => array(self::BELONGS_TO, 'TbUser', 'pr_user'),
-			'tbTasks' => array(self::HAS_MANY, 'TbTask', 't_project'),
-			'tbTeams' => array(self::HAS_MANY, 'TbTeam', 'team_project'),
-			'tbTimers' => array(self::HAS_MANY, 'TbTimer', 'timer_project'),
+			'tbMilestones' => array(self::HAS_MANY, 'Tbmilestone', 'm_project'),
+			'prStatus' => array(self::BELONGS_TO, 'Tbstatus', 'pr_status'),
+			'prUser' => array(self::BELONGS_TO, 'User', 'pr_user'),
+			'tbTasks' => array(self::HAS_MANY, 'Tbtask', 't_project'),
+			'tbTeams' => array(self::HAS_MANY, 'Tbteam', 'team_project'),
+			'tbTimers' => array(self::HAS_MANY, 'Tbtimer', 'timer_project'),
 		);
 	}
 

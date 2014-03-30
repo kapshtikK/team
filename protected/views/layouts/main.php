@@ -20,6 +20,22 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/sb-admin.css" />  
 	  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/css/font-awesome.css" />
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+            
+        <style type="text/css">
+            
+            .externalBut{
+                background-color:inherit;
+                width:20px;
+                height:20px;
+                padding-top:0px;
+                margin-top:auto;
+            }
+            .intBut{
+                margin-top:-15px;
+                 margin-left:-15px;
+            }
+            
+        </style>
 </head>
 
 <body>

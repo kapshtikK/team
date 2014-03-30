@@ -40,8 +40,8 @@ foreach($model as $row) //вывод
               '<td><ul id="side-menu" class="nav">
                    
                     <li >
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="width:60px" >
-                            <button class="btn btn-default btn-circle" >
+                        <a class="dropdown-toggle externalBut" href="#" data-toggle="dropdown" >
+                            <button class="btn btn-default btn-circle intBut" >
                                   <i class="fa fa-check"></i> 
                             </button>
                         </a>

@@ -44,12 +44,10 @@ class Tbteam extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
 			'teamProject' => array(self::BELONGS_TO, 'TbProject', 'team_project'),
-			'teamUser' => array(self::BELONGS_TO, 'TbUser', 'team_user'),
-			'teamRole' => array(self::BELONGS_TO, 'TbRole', 'team_role'),
+			'teamUser' => array(self::BELONGS_TO, 'User', 'team_user'),
+			'teamRole' => array(self::BELONGS_TO, 'Roles', 'team_role'),
 		);
 	}
 
